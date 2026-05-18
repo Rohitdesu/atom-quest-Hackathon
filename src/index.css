@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Enterprise Blue theme */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 20% 96%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-border: 220 20% 90%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 213 31% 80%;
+
+    --muted: 222 47% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 222 47% 14%;
+    --accent-foreground: 213 31% 91%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 16%;
+    --input: 222 47% 16%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 213 31% 82%;
+    --sidebar-border: 222 47% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ─── Premium Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(214.3 31.8% 83%); border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(214.3 31.8% 68%); }
+
+/* ─── Custom Keyframes ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(59,130,246,0); }
+  100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+}
+
+/* ─── Skeleton / Loading ─────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(210 40% 96%) 25%,
+    hsl(210 40% 92%) 37%,
+    hsl(210 40% 96%) 63%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 6px;
+}
+
+/* ─── Page transitions ───────────────────────────────────────────── */
+.page-enter { animation: scaleIn 0.25s ease-out; }
+
+/* ─── Card hover lift ────────────────────────────────────────────── */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.18s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 10px 36px -10px rgba(0,0,0,0.13), 0 2px 8px -2px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+
+/* ─── Stat counter animation ─────────────────────────────────────── */
+@keyframes stat-pop {
+  0%   { opacity: 0; transform: translateY(12px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.stat-appear {
+  animation: stat-pop 0.35s ease-out both;
+}
+.stat-appear:nth-child(1) { animation-delay: 0.0s; }
+.stat-appear:nth-child(2) { animation-delay: 0.07s; }
+.stat-appear:nth-child(3) { animation-delay: 0.14s; }
+.stat-appear:nth-child(4) { animation-delay: 0.21s; }
+
+/* ─── Smooth focus rings ─────────────────────────────────────────── */
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* ─── Status badge colours ───────────────────────────────────────── */
+.badge-draft       { @apply bg-gray-100 text-gray-700 border-gray-200; }
+.badge-in_review   { @apply bg-blue-50 text-blue-700 border-blue-200; }
+.badge-approved    { @apply bg-emerald-50 text-emerald-700 border-emerald-200; }
+.badge-in_progress { @apply bg-violet-50 text-violet-700 border-violet-200; }
+.badge-completed   { @apply bg-green-50 text-green-700 border-green-200; }
+.badge-at_risk     { @apply bg-red-50 text-red-700 border-red-200; }
+.badge-cancelled   { @apply bg-slate-100 text-slate-500 border-slate-200; }
+
+.dark .badge-draft       { @apply bg-gray-800 text-gray-300 border-gray-600; }
+.dark .badge-in_review   { @apply bg-blue-950 text-blue-300 border-blue-700; }
+.dark .badge-approved    { @apply bg-emerald-950 text-emerald-300 border-emerald-700; }
+.dark .badge-in_progress { @apply bg-violet-950 text-violet-300 border-violet-700; }
+.dark .badge-completed   { @apply bg-green-950 text-green-300 border-green-700; }
+.dark .badge-at_risk     { @apply bg-red-950 text-red-300 border-red-700; }
+.dark .badge-cancelled   { @apply bg-slate-800 text-slate-400 border-slate-600; }
+
+/* ─── Dark mode card & surface overrides ─────────────────────────── */
+.dark .card-hover:hover {
+  box-shadow: 0 10px 36px -10px rgba(0,0,0,0.5), 0 2px 8px -2px rgba(0,0,0,0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(222 47% 22%);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(222 47% 30%);
+}
+
+/* Dark mode skeleton */
+.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(222 47% 12%) 25%,
+    hsl(222 47% 16%) 37%,
+    hsl(222 47% 12%) 63%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* Dark mode theme transition */
+html {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
