@@ -1,73 +1,155 @@
-# React + TypeScript + Vite
+# GoalSync Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An enterprise-grade Goal Setting & Performance Tracking Portal for employees, managers, and HR teams.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+GoalSync Pro is a modern web-based performance management platform designed to streamline organizational goal setting, approval workflows, quarterly check-ins, and achievement tracking.
 
-## React Compiler
+The platform replaces fragmented spreadsheet-based systems with a centralized, real-time, and audit-ready portal that improves transparency, accountability, and performance visibility across the organization.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
 
-## Expanding the ESLint configuration
+- Role-based authentication
+- Employee goal creation
+- Goal approval workflow
+- Goal locking system
+- Quarterly achievement tracking
+- Progress calculation engine
+- Shared goals management
+- Admin analytics dashboard
+- Audit trail logging
+- Escalation Engine (Automated notifications)
+- CSV/Excel export reports
+- Responsive enterprise UI with Dark Mode
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## User Roles
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Employee
+- Create and submit goals
+- Update quarterly achievements
+- Track goal progress
+- View shared goals
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Manager
+- Review and approve goals
+- Monitor team performance and check-ins
+- Push shared goals to team members
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Admin / HR
+- Manage organization-wide cycles
+- Unlock goal sheets
+- Access analytics and audit logs
+- Run Escalation Engine scans
+
+## Tech Stack
+
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+- Lucide React (Icons)
+- Recharts
+
+### Backend & Database
+- Supabase
+- PostgreSQL
+
+### Deployment
+- Vercel
+
+## System Architecture
+
+Frontend (React + Tailwind)
+        ↓
+Supabase Authentication
+        ↓
+PostgreSQL Database
+        ↓
+Business Logic & Analytics
+        ↓
+Reports & Dashboard Visualizations
+
+## Core Database Tables
+
+- users
+- goals
+- shared_goals
+- checkins
+- audit_logs
+- notifications
+
+## Validation Rules
+
+- Maximum 8 goals per employee
+- Minimum 10% weightage per goal
+- Total goal weightage must equal exactly 100%
+- Approved goals become locked
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Rohitdesu/atom-quest-Hackathon.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Configure environment variables (create a `.env` file)
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+4. Start development server
+
+```bash
+npm run dev
+```
+
+## Demo Credentials
+
+### Admin
+Email: admin@goalsync.com
+Password: Password123
+
+### Manager
+Email: manager@goalsync.com
+Password: Password123
+
+### Employee
+Email: employee@goalsync.com
+Password: Password123
+
+## Screenshots
+
+*(Insert your screenshots here)*
+- Login Page
+- Employee Dashboard
+- Manager Dashboard
+- Admin Analytics
+- Escalation Engine
+- Dark Mode View
+
+## Future Enhancements
+
+- Microsoft Teams integration
+- AI goal recommendations
+- Advanced analytics engine
+- Real-time automated email notifications
+- Azure AD integration
+
+## Live Demo
+
+*(Insert your Vercel deployment link here)*
+https://goalsync-pro.vercel.app
+
+## Repository
+
+https://github.com/Rohitdesu/atom-quest-Hackathon.git
