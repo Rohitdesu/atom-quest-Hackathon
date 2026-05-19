@@ -120,15 +120,6 @@ Password: Password123
 Email: employee@goalsync.com
 Password: Password123
 
-## Screenshots
-
-*(Insert your screenshots here)*
-- Login Page
-- Employee Dashboard
-- Manager Dashboard
-- Admin Analytics
-- Escalation Engine
-- Dark Mode View
 
 ## Future Enhancements
 
