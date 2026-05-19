@@ -147,8 +147,7 @@ Password: Password123
 
 ## Live Demo
 
-*(Insert your Vercel deployment link here)*
-https://goalsync-pro.vercel.app
+https://atom-quest-hackathon-hg94k0gc0-rohits-projects-486a8f26.vercel.app/login
 
 ## Repository
 
