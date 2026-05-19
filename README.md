@@ -60,7 +60,7 @@ The platform replaces fragmented spreadsheet-based systems with a centralized, r
 
 ## System Architecture
 
-![Architecture Diagram](architecture goalsync.png)
+![Architecture Diagram](./architecture goalsync.png)
 
 
 ## Core Database Tables
