@@ -60,15 +60,8 @@ The platform replaces fragmented spreadsheet-based systems with a centralized, r
 
 ## System Architecture
 
-Frontend (React + Tailwind)
-        ↓
-Supabase Authentication
-        ↓
-PostgreSQL Database
-        ↓
-Business Logic & Analytics
-        ↓
-Reports & Dashboard Visualizations
+![Architecture Diagram](architecture goalsync.png)
+
 
 ## Core Database Tables
 
